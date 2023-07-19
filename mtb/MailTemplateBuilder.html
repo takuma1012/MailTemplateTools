@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/xlsx@0.16.8/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="./css/mtb.css">
+    <title>MTB</title>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-dark bg-transparent grmn px-0">
+      <div class="container-fluid px-5">
+        <p class="navbar-brand mb-0 pt-0 title">MailTemplateBuilder</p>
+        <img src="./img/Garman-Logo-white.png" alt="" width="100">
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="container-fluid px-5" id="main">
+        <div class="row">
+
+          <!-- left_pane st -->
+          <div class="col-6" id="inquery">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button
+                  class="nav-link active"
+                  id="nav-inquery-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-inquery"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-inquery"
+                  aria-selected="true"
+                >
+                  問い合わせ内容
+                </button>
+                <button
+                  class="nav-link"
+                  id="nav-stock-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-stock"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-stock"
+                  aria-selected="false"
+                >
+                  在庫状況
+                </button>
+              </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+              <!-- tab1 st -->
+              <div
+                class="tab-pane fade show active"
+                id="nav-inquery"
+                role="tabpanel"
+                aria-labelledby="nav-inquery-tab"
+              >
+                <table class="table table-bordered mt-5">
+                  <thead>
+                    <tr>
+                      <th class="table-secondary">概要</th>
+                      <th class="table-secondary">問い合わせ詳細</th>
+                    </tr>
+                  </thead>
+                  <tbody id="data_table">
+                  </tbody>
+                </table>
+              </div>
+              <!-- /tab1 ed -->
+
+              <!-- tab2 st -->
+              <div
+                class="tab-pane fade"
+                id="nav-stock"
+                role="tabpanel"
+                aria-labelledby="nav-stock-tab"
+              >
+                <div class="input-group mb-1 mt-2">
+                  <label class="input-group-text" for="import_excel_data"><img src="./img/excel.png" width="24"></label>
+                  <input type="file" class="form-control" id="import_excel_data">
+                </div>
+                <div id="result"></div>
+              </div>
+              <!-- /tab2 ed -->
+            </div>
+
+          </div>
+          <!-- /left_pane ed -->
+
+          <!-- right_pane st -->
+          <div class="col-6" id="response_note">
+            <div class="form-floating">
+              <button id="copy" class="btn btn-outline-primary btn-sm mb-3">コピー</button>
+              <button id="clear" class="btn btn-outline-secondary btn-sm mb-3" onclick="clearTextArea()">クリア</button>
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 600px"></textarea>
+              <label for="mail-template" id="mail-template"></label>
+            </div>
+          </div>
+          <!-- right_pane st -->
+        </div>
+      </div>
+
+      <!-- footer st -->
+      <div class="footer md-2">
+        <div class="container">
+        <hr class="mt-5">
+        <div class="row links md-2 justify-content-md-center">
+          <div class="col-2">
+            <a href="../mtg/MailTemplateGenerater.html" class="text-decoration-none">MailTemplateGenerater</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer ed -->
+  </body>
+  <script src="./data.js"></script>
+  <script src="./js/mtb.js"></script>
+</html>
